@@ -1,0 +1,1403 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body,
+html {
+    font-family: "Inter", sans-serif;
+    background-color: #ffffff;
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+img {
+    width: 100%;
+}
+
+main {
+    flex: 1;
+    margin: 50px 5%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #0f0f0f;
+}
+
+p {
+    font-family: "Poppins", sans-serif;
+    color: #212121;
+}
+
+button:disabled {
+    cursor: not-allowed;
+    opacity: 0.8;
+}
+
+/* // Header And Nav */
+
+header {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    min-height: 70px;
+    border-bottom: 1px solid #e5e5e5;
+    box-shadow: rgba(14, 63, 126, 0.04) 0px 0px 0px 1px,
+        rgba(42, 51, 69, 0.04) 0px 1px 1px -0.5px,
+        rgba(42, 51, 70, 0.04) 0px 3px 3px -1.5px,
+        rgba(42, 51, 70, 0.04) 0px 6px 6px -3px,
+        rgba(14, 63, 126, 0.04) 0px 12px 12px -6px,
+        rgba(14, 63, 126, 0.04) 0px 24px 24px -12px;
+}
+
+nav {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 5%;
+    padding: 10px 0;
+    gap: 1rem;
+}
+
+nav a {
+    color: #606060;
+    text-decoration: none;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.35rem;
+    width: 100%;
+    max-width: 150px;
+}
+
+nav .logo a {
+    color: #0f0f0f;
+    font-weight: 700;
+    font-size: 23px;
+    text-decoration: none;
+}
+
+.youBlogLogo {
+    max-width: 100%;
+    width: 38px;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+nav .navProfile {
+    width: 45px;
+    border-radius: 100%;
+}
+
+.navLinks {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.createBlogBtnLink:hover,
+.logInBtnLink:hover {
+    text-decoration: none;
+}
+
+.createBlogBtn {
+    background-color: #0f0f0f;
+    color: #fff;
+    font-family: "Inter", sans-serif;
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 13px;
+    letter-spacing: 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease-in-out;
+}
+
+.navLogInBtn {
+    background-color: #0f0f0f;
+    color: #fff;
+    font-family: "Inter", sans-serif;
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 13px;
+    letter-spacing: 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease-in-out;
+}
+
+.navLogInBtn:hover {
+    background-color: #000000;
+    transition: all 0.3s ease-in-out;
+}
+
+.createBlogBtn:hover {
+    background-color: #000000;
+    transition: all 0.3s ease-in-out;
+}
+
+.searchBarContainer {
+    width: 100%;
+    max-width: 450px;
+}
+
+.searchInputContainer {
+    position: relative;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    gap: 0;
+    width: 100%;
+    max-width: 450px;
+}
+
+.searchInput {
+    flex: 1;
+    padding: 5px 38px 5px 16px; /* smaller padding, still room for button */
+    border: 2px solid #b7c6d9;
+    border-radius: 25px;
+    background: #f4f6fa;
+    font-size: 14px;
+    font-family: "Inter", "Poppins", Arial, sans-serif;
+    font-weight: 500;
+    color: #23272f;
+    outline: none;
+    transition: border 0.2s, background 0.2s;
+    box-shadow: 0 1px 3px rgba(44, 62, 80, 0.03);
+    height: 38px;
+    width: 100%;
+    max-width: 450px;
+}
+
+.searchInput:focus {
+    border-color: #555;
+    background: #f9fbfd;
+}
+
+.searchInput::placeholder {
+    color: #a0aec0;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+}
+
+.searchBtn {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: fit-content;
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: 6px;
+    background-color: inherit;
+    color: #a0aec0;
+    font-size: 1em;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.18s, transform 0.13s, box-shadow 0.18s;
+    padding: 0;
+    z-index: 2;
+}
+
+.searchBtn:hover {
+    color: #555;
+}
+
+/* // Footer */
+
+.siteFooter {
+    background-color: #0f0f0f;
+    color: #f1f1f1;
+    padding: 1.35rem 0;
+    font-size: 0.95rem;
+    width: 100%;
+}
+
+.footerContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 5%;
+    text-align: left;
+    gap: 0.5rem;
+}
+
+.footerBrand {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    min-width: 250px;
+}
+
+footer .logo {
+    justify-content: flex-start;
+}
+
+footer .logo a {
+    text-decoration: none;
+    font-size: 23px;
+    color: #f1f1f1;
+    font-weight: 700;
+}
+
+footer a:hover {
+    text-decoration: #f1f1f1 underline;
+}
+
+.footerBrand p {
+    max-width: 300px;
+    color: #cccccc;
+}
+
+.footerRight {
+    min-width: 250px;
+}
+
+.footerCopy {
+    color: #aaaaaa;
+    font-size: 0.85rem;
+    line-height: 22px;
+}
+
+/* // Lazy Img Loader */
+
+@keyframes pulse {
+    0% {
+        opacity: 0.6;
+    }
+    50% {
+        opacity: 0.85;
+    }
+    100% {
+        opacity: 0.6;
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+/* // Loading */
+
+.loadingText {
+    text-align: center;
+    font-size: 20px;
+}
+
+.loadingContainer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+}
+
+.loadingContainer img {
+    width: 64px;
+}
+
+/* // Spinner Loader */
+
+.loader {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-left-color: transparent;
+    border-radius: 50%;
+}
+
+.loader {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-left-color: transparent;
+    width: 36px;
+    height: 36px;
+}
+
+.loader {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-left-color: transparent;
+    width: 36px;
+    height: 36px;
+    animation: spin89345 1s linear infinite;
+}
+
+@keyframes spin89345 {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* // Home Page */
+
+.userWelcome,
+.guestWelcome {
+    margin-bottom: 35px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.homePageHeading {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.homePageSecHeading {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.welcomeMsg p {
+    font-size: 15px;
+    font-weight: 500;
+    color: #212121;
+}
+
+.searchTerm {
+    font-weight: 600;
+}
+
+.searchResult {
+    text-align: center;
+    margin: 30px auto 0 auto;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.allBlogsContainer {
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(300px, 1fr)
+    ); /* Responsive grid */
+    gap: 1.5rem;
+    max-width: 1400px; /* Prevents stretching too wide */
+    margin: 35px auto 43px auto; /* Centers container */
+    justify-items: flex-start; /* Align cards left within each column */
+}
+
+.featuredBlogsHeading {
+    font-size: 24px;
+    font-weight: 600;
+    text-transform: capitalize;
+    color: #212121;
+}
+
+/* // Pagination Controls */
+
+.paginationContainer {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.paginationBtn {
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+    padding: 8px 30px;
+    background-color: #0f0f0f;
+    color: #f1f1f1;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.paginationInfo {
+    display: flex;
+    font-family: "Poppins", sans-serif;
+    gap: 0.5rem;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+/* // Profile Page */
+
+.profileView {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+    gap: 2rem;
+    width: fit-content;
+    margin-bottom: 1rem;
+}
+
+.profileImg {
+    width: 135px;
+    text-align: center;
+    margin: 0 auto;
+    border-radius: 100%;
+}
+
+.userInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 0.25rem;
+    margin-bottom: 5px;
+}
+
+.userWelcomeProfile {
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.userEmail {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.accDetailP {
+    font-size: 13px;
+    color: #969696;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.profileTabsContainer {
+    margin: 35px 0 35px 0;
+    border-bottom: 2px solid #969696;
+}
+
+.profileTabLinks {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 5px;
+}
+
+.profileTabLinks a {
+    text-decoration: none;
+    color: #606060;
+    font-weight: 600;
+}
+
+.profileTabLinks a:hover {
+    text-decoration: 3px #606060 underline;
+    text-underline-offset: 8px;
+}
+
+.googleLoginBtn {
+    background-color: #0f0f0f;
+    color: #fff;
+    font-family: "Inter", sans-serif;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    letter-spacing: 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease-in-out;
+}
+
+.googleLoginBtn:hover {
+    background-color: #000000;
+    transition: all 0.3s ease-in-out;
+}
+
+.googleLoginBtn .googleSVG {
+    width: 15px;
+}
+
+/* // User Blogs */
+
+.userBlogsHeading {
+    font-size: 24px;
+    text-transform: capitalize;
+}
+
+.blogWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin: 35px 0;
+}
+
+.blogContianerLink {
+    text-decoration: none;
+}
+
+.blogContainer {
+    background-color: #f9f9f9;
+    border: 2px solid #e5e5e5;
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
+    width: 100%;
+    max-width: 300px;
+    min-height: 410px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding: 15px;
+    cursor: pointer;
+    transition: all 0.25s ease-in-out;
+}
+
+.blogContainerTop {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.blogContainer:hover {
+    transform: translateY(-2px);
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px,
+        rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+
+.blogImage img {
+    border-radius: 8px;
+    width: 100%;
+    height: 175px;
+}
+
+.blogInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.blogTitle h3 {
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.blogDesc p {
+    font-size: 14px;
+    line-height: 18px;
+    color: #606060;
+}
+
+.authorInfo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.authorProfile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.65rem;
+}
+
+.authorProfile img {
+    width: 35px;
+    border-radius: 100%;
+}
+
+.authorProfile p {
+    font-size: 12px;
+    word-break: keep-all;
+    color: #606060;
+    transition: al 0.3s ease-in-out;
+}
+
+.authorProfile p:hover {
+    color: #212121;
+}
+
+.blogUploadTime p {
+    font-size: 12px;
+    color: #606060;
+}
+
+/* // Upload Blogs */
+
+.input-error {
+    border: 2px solid rgb(255, 56, 96);
+}
+
+.field-error {
+    color: rgb(255, 56, 96);
+    font-size: 0.85rem;
+    margin-top: 4px;
+}
+
+.uploadBlogHeading {
+    font-size: 24px;
+    text-transform: capitalize;
+}
+
+.uploadBlogForm {
+    margin: 35px auto 35px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.uploadBlogForm label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-size: 16px;
+    font-weight: 500;
+    width: 100%;
+    max-width: 800px;
+}
+
+.uploadBlogForm input,
+.uploadBlogForm textarea {
+    width: 100%;
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    max-width: 800px;
+    padding: 10px 0px 10px 15px;
+    border: 2px solid #aaaaaa;
+    border-radius: 12px;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+    resize: none;
+}
+
+.uploadBlogForm input:focus,
+.uploadBlogForm textarea:focus {
+    border: 2px solid #0f0f0f;
+}
+
+.publishBtn {
+    background-color: #0f0f0f;
+    color: #fff;
+    font-family: "Inter", sans-serif;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    letter-spacing: 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    width: 100%;
+    max-width: 800px;
+    transition: all 0.3s ease-in-out;
+}
+
+.publishBtn:hover {
+    background-color: #000000;
+    transition: all 0.3s ease-in-out;
+}
+
+/* // Edit & Upload Blog */
+
+/* // Blog Detailed */
+
+.backLink {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: flex-start;
+    align-items: center;
+    text-decoration: none;
+    color: #212121;
+    font-size: 16px;
+    font-family: "Poppins", sans-serif;
+    transition: all 0.3s ease-in-out;
+}
+
+.backLink:hover {
+    transform: translateY(-1px);
+}
+
+.backLink i {
+    font-size: 15px;
+}
+
+.blogDetailContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.blogDetailImg img {
+    width: 100%;
+    max-height: 400px;
+    aspect-ratio: 16/9;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.blogDetailInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.blogDetailTitle h1 {
+    font-size: 32px;
+    color: #0f0f0f;
+}
+
+.blogDetailTitle {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1.5rem;
+}
+
+.blogDetailReactions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline: none;
+    border: 2px solid #b7c6d9;
+    border-radius: 25px;
+    background: #f4f6fa;
+}
+
+.blogDetailReactions .likeBtn,
+.blogDetailReactions .dislikeBtn {
+    border: 0;
+    outline: 0;
+    padding: 8px 16px;
+    background: #f4f6fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.75rem;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.likeBtn i,
+.dislikeBtn i {
+    transition: all 0.3s ease-in-out;
+}
+
+.likeBtn {
+    border-radius: 25px 0 0px 25px;
+}
+
+.dislikeBtn {
+    border-radius: 0 25px 25px 0px;
+}
+
+.blogDetailReactions .likeBtn:hover i,
+.blogDetailReactions .dislikeBtn:hover i {
+    color: #0f0f0f;
+}
+
+.likeBtn i,
+.dislikeBtn i {
+    font-size: 18px;
+    color: #a0aec0;
+}
+
+.blogDetailReactionsCount {
+    font-family: "Poppins", sans-serif;
+    color: #606060;
+}
+
+.activeReaction i,
+.activeReaction .blogDetailReactionsCount {
+    color: #0f0f0f;
+}
+
+.blogDetailAuthorContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.blogDetailAuthor {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.7rem;
+    font-family: "Poppins", sans-serif;
+}
+
+.blogDetailAuthor img {
+    width: 50px;
+    border-radius: 100%;
+}
+
+.blogDetailDate {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    line-height: 14px;
+}
+
+.blogDetailDate h2 {
+    font-size: 14px;
+    font-weight: 500;
+    color: #606060;
+}
+
+.blogDetailDate h2:hover {
+    color: #212121;
+}
+
+.blogDetailDate h4 {
+    font-size: 12px;
+    font-weight: 500;
+    color: #969696;
+    line-height: 15px;
+}
+
+.blogDetailDate h6 {
+    font-size: 11px;
+    font-weight: 500;
+    color: #969696;
+    line-height: 11px;
+}
+
+.blogDetailContent {
+    color: #212121;
+    white-space: pre-wrap;
+    margin-top: 1rem;
+}
+
+.blogDetailAction {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.delBlogBtn,
+.editBlogBtn {
+    color: #fff;
+    font-family: "Inter", sans-serif;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    letter-spacing: 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease-in-out;
+}
+
+.editBlogBtn {
+    background-color: rgb(231, 157, 30);
+}
+
+.editBlogBtn:hover {
+    background-color: rgb(255, 132, 0);
+}
+
+.delBlogBtn {
+    background-color: rgb(255, 56, 96);
+}
+
+.delBlogBtn:hover {
+    background-color: rgb(255, 36, 80);
+}
+
+/* // Login Page */
+
+.loginPageSection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+.loginPageSection .googleLoginBtn {
+    width: 100%;
+}
+
+.logInCard {
+    background-color: #f9f9f9;
+    padding: 30px;
+    border-radius: 10px;
+    border: 2px solid #e5e5e5;
+    box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em,
+        rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+}
+
+.loginDescription {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 25px 0;
+    max-width: 500px;
+}
+
+/* * MODAL */
+
+/* Modal Overlay */
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.2s ease-in-out;
+    z-index: 999;
+}
+
+/* Modal Box */
+.modalBox {
+    padding: 1.5rem 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    min-width: 300px;
+    max-width: 90%;
+    background-color: #f9f9f9;
+    border: 2px solid #e5e5e5;
+    animation: scaleUp 0.2s ease-in-out;
+}
+
+/* Text */
+.modalMessage {
+    font-size: 1.1rem;
+    margin-bottom: 1.2rem;
+    color: #212121;
+    font-family: "Poppins", sans-serif;
+    text-align: center;
+}
+
+/* Buttons */
+.modalBtnGroup {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.modalConfirmBtn {
+    font-family: "Inter", sans-serif;
+    padding: 8px 30px;
+    text-transform: uppercase;
+    background-color: rgb(255, 56, 96);
+    letter-spacing: 1px;
+    font-weight: 600;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.modalConfirmBtn:hover {
+    background-color: rgb(255, 36, 80);
+}
+
+.modalCancelBtn {
+    font-family: "Inter", sans-serif;
+    padding: 8px 30px;
+    text-transform: uppercase;
+    background-color: rgb(255, 56, 96);
+    letter-spacing: 1px;
+    font-weight: 600;
+    color: #969696;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s;
+    background-color: #e5e5e5;
+}
+
+.modalCancelBtn:hover {
+    background: #cfcfcf;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes scaleUp {
+    from {
+        transform: scale(0.95);
+        opacity: 0.5;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/*  * MEDIA QUERIES  */
+
+@media (max-width: 700px) {
+    .createBlogBtnLink,
+    .createBlogBtn {
+        display: none;
+    }
+}
+
+/* Laptop & Tablets */
+@media (max-width: 1024px) {
+    header {
+        height: fit-content;
+    }
+    nav {
+        margin: 0 4%;
+        gap: 0.75rem;
+    }
+    .logo {
+        max-width: fit-content;
+    }
+    .logo img {
+        width: 30px;
+    }
+    nav .logo a {
+        font-size: 18px;
+    }
+    main {
+        margin: 40px 4%;
+    }
+    .blogDetailTitle h1 {
+        font-size: 30px;
+    }
+    .blogDetailContent p {
+        font-size: 15px;
+    }
+    .blogDetailAction button {
+        font-size: 13px;
+    }
+    .navLinks a .navProfile {
+        width: 40px;
+    }
+}
+
+/* Large Mobile */
+@media (max-width: 800px) {
+    .navLogInBtn {
+        width: 100%;
+        word-break: keep-all;
+        font-size: 12px;
+    }
+    .profileView {
+        gap: 1.5rem;
+    }
+    .profileView .profileImg {
+        width: 110px;
+    }
+    .userInfo {
+        gap: 0.2rem;
+    }
+    .userInfo p {
+        font-size: 12px;
+    }
+    .userInfo .userEmail {
+        font-size: 15px;
+    }
+    .userInfo .userWelcomeProfile {
+        font-size: 22px;
+    }
+    nav {
+        margin: 0 3%;
+    }
+    .userWelcome {
+        margin-bottom: 20px;
+    }
+    .userWelcome h1 {
+        font-size: 20px;
+    }
+    .userWelcome h3 {
+        line-height: 18px;
+        font-size: 16px;
+    }
+    .userWelcome p {
+        line-height: 16px;
+        font-size: 14px;
+    }
+    .allBlogsContainer {
+        margin: 20px 0;
+    }
+    main {
+        margin: 40px 3%;
+    }
+    .blogDetailTitle h1 {
+        font-size: 26px;
+    }
+    .blogDetailContent p {
+        font-size: 14px;
+    }
+    .blogDetailAction button {
+        font-size: 12px;
+    }
+    .blogDetailImg img {
+        height: 350px;
+    }
+    .footerContainer {
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 600px) {
+    .profileView {
+        gap: 1.2rem;
+    }
+    .profileView .profileImg {
+        width: 95px;
+    }
+    .userInfo {
+        gap: 0.2rem;
+    }
+    .userInfo p {
+        font-size: 11px;
+    }
+    .userInfo .googleLoginBtn {
+        font-size: 12px;
+    }
+    .userInfo .userEmail {
+        font-size: 13px;
+    }
+    .userInfo .userWelcomeProfile {
+        font-size: 18px;
+    }
+    nav {
+        margin: 0 3%;
+    }
+    main {
+        margin: 30px 3%;
+    }
+    .blogDetailTitle h1 {
+        font-size: 23px;
+    }
+    .blogDetailContent p {
+        font-size: 13px;
+    }
+    .blogDetailImg img {
+        height: 250px;
+    }
+    .blogDetailDate h4 {
+        font-size: 11px;
+        line-height: 12px;
+    }
+    .blogDetailDate h6 {
+        font-size: 10px;
+    }
+    .blogDetailAction {
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+    .blogDetailAction button {
+        width: 100px;
+        font-size: 12px;
+        padding: 8px 16px;
+    }
+    .blogDetailReactions .likeBtn,
+    .blogDetailReactions .dislikeBtn {
+        padding: 6px 15px;
+        gap: 0.55rem;
+    }
+    .blogDetailReactions .likeBtn i,
+    .blogDetailReactions .dislikeBtn i {
+        font-size: 16px;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    .profileTabsContainer {
+        margin: 25px 0 25px 0;
+    }
+    .blogWrapper,
+    .uploadBlogForm {
+        margin: 25px 0;
+    }
+    nav {
+        margin: 0 3%;
+    }
+    main {
+        margin: 30px 3%;
+    }
+    .blogDetailTitle h1 {
+        font-size: 17px;
+    }
+    .blogDetailContent p {
+        font-size: 12px;
+    }
+    .blogDetailImg img {
+        height: 200px;
+    }
+    .blogDetailDate h4 {
+        font-size: 9px;
+        line-height: 11px;
+    }
+    .blogDetailDate h6 {
+        font-size: 8px;
+    }
+    .blogDetailAction {
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+    .blogDetailAction button {
+        font-size: 10px;
+        padding: 6px 8px;
+    }
+    .blogDetailReactions .likeBtn,
+    .blogDetailReactions .dislikeBtn {
+        padding: 6px 12px;
+        gap: 0.45rem;
+    }
+    .blogDetailReactions .likeBtn i,
+    .blogDetailReactions .dislikeBtn i {
+        font-size: 15px;
+    }
+    .blogDetailAuthorContainer {
+        gap: 1.25rem;
+    }
+}
+
+@media (max-width: 400px) {
+    nav {
+        margin: 0 2%;
+    }
+    main {
+        margin: 30px 2%;
+    }
+    .blogDetailTitle h1 {
+        font-size: 16px;
+    }
+    .blogDetailContent p {
+        font-size: 12px;
+    }
+    .blogDetailImg img {
+        height: 200px;
+    }
+    .blogDetailDate h4 {
+        font-size: 9px;
+        line-height: 11px;
+    }
+    .blogDetailAuthorContainer {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .blogDetailDate h6 {
+        font-size: 8px;
+    }
+    .blogDetailAction {
+        width: 100%;
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+    .blogDetailAction button {
+        width: 100%;
+        font-size: 10px;
+        padding: 6px 8px;
+    }
+    .blogDetailReactions .likeBtn,
+    .blogDetailReactions .dislikeBtn {
+        padding: 6px 12px;
+        gap: 0.45rem;
+    }
+    .blogDetailReactions .likeBtn i,
+    .blogDetailReactions .dislikeBtn i {
+        font-size: 15px;
+    }
+    .blogDetailAuthorContainer {
+        gap: 1.25rem;
+    }
+}
+
+@media (min-width: 1600px) {
+    .allBlogsContainer {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Optional: Smooth scaling by explicit breakpoints */
+@media (max-width: 1200px) {
+    .allBlogsContainer {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 992px) {
+    .allBlogsContainer {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .allBlogsContainer {
+        grid-template-columns: repeat(2, 1fr);
+        justify-content: center;
+        align-items: center;
+    }
+    .blogContianerLink {
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .allBlogsContainer {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
